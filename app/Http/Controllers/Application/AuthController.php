@@ -6,6 +6,13 @@ class AuthController extends Controller
 {
 
     /**
+     * Define the layout for this controller
+     *
+     * @var string
+     */
+    protected $layout = 'auth';
+
+    /**
      * Show the application views if the user isn't Logged in
      */
     public function __construct()

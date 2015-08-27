@@ -31,8 +31,8 @@
             .dark();
 
         $mdThemingProvider.theme('default')
-            .primaryPalette('orange')
-            .accentPalette('yellow');
+            .primaryPalette('blue')
+            .accentPalette('light-blue');
 
         $mdThemingProvider.theme('sideNav')
             .backgroundPalette('blue-grey', {
