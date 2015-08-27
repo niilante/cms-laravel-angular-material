@@ -1,7 +1,7 @@
 {
     "name": "bytpher/cms-laravel-angular-material",
     "description": "CMS with Laravel + Angular Material starter project",
-    "keywords": ["framework", "laravel", "cms", "laravel+angular", "material design"],
+    "keywords": ["framework", "laravel", "cms", "laravel angular", "material design"],
     "type": "project",
     "license": "MIT",
     "authors": [
