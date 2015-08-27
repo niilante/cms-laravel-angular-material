@@ -79,12 +79,12 @@ Elixir.extend('angular_js', function ()
             .pipe(plug.bytediff.stop(bytediffFormatter))
             // .pipe(plug.sourcemaps.write('./'))
             .pipe(gulp.dest(paths.build))
-            .plug.notify({
+            .pipe(plug.notify({
                 title: 'Laravel Elixir',
                 subtitle: 'Angular App files Compiled!',
                 icon: __dirname + '/../node_modules/laravel-elixir/icons/laravel.png',
                 message: ' '
-            });
+            }));
     }).watch(paths.js);
 });
 
