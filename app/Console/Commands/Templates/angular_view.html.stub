@@ -1,0 +1,5 @@
+<md-card>
+    <md-card-content>
+        <h2 class="md-title">{{ViewName}}</h2>
+    </md-card-content>
+</md-card>

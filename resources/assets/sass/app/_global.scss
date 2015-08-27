@@ -1,0 +1,252 @@
+// Auth
+body.auth {
+  background: $blue-grey;
+}
+
+// General
+md-content {
+  background: #fafafa;
+}
+
+md-input-container[flex] {
+  padding: 2px 8px 26px !important;
+}
+
+//Utils
+img.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+.center-align {
+  text-align: center;
+}
+
+// Dialogs
+md-dialog[md-theme="error"] {
+  color: #ffffff;
+}
+
+// SideNav
+md-sidenav[md-theme="sideNav"], md-sidenav[md-theme="sideNav"] md-content {
+  background-color: color('blue-grey', 'darken-4');
+}
+
+md-sidenav, md-sidenav.md-locked-open, md-sidenav.md-closed.md-locked-open-add-active {
+  min-width: $sideNav-width;
+  width: $sideNav-width;
+  max-width: $sideNav-width;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  padding: 20px 40px;
+}
+
+// Toolbar
+.toolbar {
+  background-color: #fff;
+  transition: all .3s;
+  @media only screen and (max-width: 960px) {
+    background-color: color('blue-grey', 'darken-4') !important;
+    .md-headline {
+      color: #ffffff;
+    }
+  }
+}
+
+// Tables
+table, th, td {
+  border: none;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+table th {
+  font-weight: 500;
+}
+
+table {
+  width: 100%;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  &.bordered tr {
+    border-bottom: 1px solid $table-border-color;
+  }
+
+  &.striped {
+    tbody tr:nth-child(odd) {
+      background-color: $table-striped-color;
+    }
+  }
+
+  &.hoverable {
+    tbody tr {
+      transition: background-color .25s ease;
+      &:hover {
+        background-color: $table-striped-color;
+      }
+    }
+  }
+
+  &.centered {
+    thead tr th, tbody tr td {
+      text-align: center;
+
+    }
+  }
+
+}
+
+thead {
+  border-bottom: 1px solid $table-border-color;
+}
+
+td, th {
+  padding: 15px 5px;
+  display: table-cell;
+  text-align: left;
+  vertical-align: middle;
+  border-radius: 2px;
+  &.fab-btn {
+    padding: 2px 5px !important;
+  }
+  @media #{$medium-and-up} {
+    &.center-on-med-up {
+      text-align: center;
+    }
+  }
+}
+
+// Responsive Table
+@media #{$medium-and-down} {
+
+  table.responsive-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+    position: relative;
+
+    th,
+    td {
+      margin: 0;
+      vertical-align: top;
+      &.no-pd {
+        padding: 0 !important;
+      }
+    }
+
+    th {
+      text-align: left;
+    }
+    thead {
+      display: block;
+      float: left;
+
+      tr {
+        display: block;
+        padding: 0 10px 0 0;
+
+        th::before {
+          content: "\00a0";
+        }
+      }
+    }
+    tbody {
+      display: block;
+      width: auto;
+      position: relative;
+      overflow-x: auto;
+      white-space: nowrap;
+
+      tr {
+        display: inline-block;
+        vertical-align: top;
+        td {
+          text-align: center;
+        }
+      }
+    }
+    th {
+      display: block;
+      text-align: right;
+    }
+    td {
+      display: block;
+      min-height: 1.25em;
+      text-align: left;
+    }
+    tr {
+      padding: 0 10px;
+    }
+
+    /* sort out borders */
+    thead {
+      border: 0;
+      border-right: 1px solid $table-border-color;
+    }
+
+    &.bordered {
+      th {
+        border-bottom: 0;
+        border-left: 0;
+      }
+      td {
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+      }
+      tr {
+        border: 0;
+      }
+      tbody tr {
+        border-right: 1px solid $table-border-color;
+      }
+    }
+
+  }
+
+}
+
+// Badges
+.status {
+  color: #ffffff;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+
+  &.active {
+    background: color('green', 'lighten-1');
+  }
+  &.inactive {
+    background: color('red', 'base');
+  }
+}
+
+// Forms
+form {
+  .md-button {
+    margin-left: 0;
+  }
+}
+
+// Chips
+.md-chips .md-chip-input-container {
+  padding-left: 0;
+}
+
+// Switch
+.title-switch {
+  float: right;
+  margin: 0;
+  line-height: inherit;
+  font-size: 15px;
+}
