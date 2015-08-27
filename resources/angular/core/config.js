@@ -6,7 +6,7 @@
 
     var config = {
         appErrorPrefix : '[App Error] ', //Configure the exceptionHandler decorator
-        appTitle       : 'RAAP Control Panel',
+        appTitle       : 'CMS Laravel Angular Material',
         version        : '1.0.0'
     };
 

@@ -21,8 +21,8 @@
             /*
              * Auth areas
              */
-            'auth.signIn',
-            'auth.register'
-            //'auth.logout'
+            'auth.login',
+            'auth.register',
+            'auth.logout'
         ]);
 })();

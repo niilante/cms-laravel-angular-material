@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('auth.signIn')
+        .module('auth.login')
         .run(appRun);
 
     appRun.$inject = ['routehelper'];
@@ -15,12 +15,12 @@
     function getRoutes() {
         return [
             {
-                url: '/auth/sign-in',
+                url: '/auth/login',
                 config: {
-                    controller: 'SignIn',
+                    controller: 'Login',
                     controllerAs: 'vm',
-                    templateUrl: '/view/auth.signIn',
-                    title: 'Sign In'
+                    templateUrl: '/view/auth.login',
+                    title: 'Login'
                 }
             }
         ];

@@ -3,18 +3,18 @@
     'use strict';
 
     angular
-        .module('auth.signIn')
-        .controller('SignIn', SignIn);
+        .module('auth.login')
+        .controller('Login', Login);
 
     /* @ngInject */
-    function SignIn(dataservice, logger, shooter, $window)
+    function Login(dataservice, logger, shooter, $window)
     {
         /* jshint validthis: true */
         var vm = this;
 
         vm.activate = activate;
         vm.user = {};
-        vm.signInUser = signInUser;
+        vm.loginUser = loginUser;
 
         activate();
 
@@ -22,13 +22,13 @@
 
         function activate()
         {
-            logger.success('Sign in Ready!');
+            logger.success('Login Ready!');
         }
 
-        function signInUser()
+        function loginUser()
         {
             vm.submitting = true;
-            return dataservice.signInUser(vm.user).then(function (data)
+            return dataservice.loginUser(vm.user).then(function (data)
             {
                 vm.submitting = false;
                 logger.info('data', data);

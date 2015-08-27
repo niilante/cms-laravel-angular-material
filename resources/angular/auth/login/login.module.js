@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('auth.signIn', [
+        .module('auth.login', [
             'ngMessages'
         ]);
 })();

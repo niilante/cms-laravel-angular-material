@@ -1,11 +1,11 @@
-<form name="signInForm" ng-submit="vm.signInUser()" layout="column" layout-padding layout-fill>
+<form name="loginForm" ng-submit="vm.loginUser()" layout="column" layout-padding layout-fill>
     <div flex>
         <h1 class="md-display-1 center-align">Sign in</h1>
     </div>
     <md-input-container flex>
         <label>E-mail</label>
         <input ng-model="vm.user.email" name="email" type="email" required>
-        <div ng-messages="signInForm.email.$error">
+        <div ng-messages="loginForm.email.$error">
             <div ng-message="required">This field is required</div>
             <div ng-message="email">This field should be an email</div>
         </div>
@@ -14,7 +14,7 @@
     <md-input-container flex>
         <label>Password</label>
         <input ng-model="vm.user.password" type="password" name="password" id="password" required>
-        <div ng-messages="signInForm.password.$error">
+        <div ng-messages="loginForm.password.$error">
             <div ng-message="required">This field is required</div>
         </div>
     </md-input-container>

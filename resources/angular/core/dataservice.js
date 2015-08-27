@@ -13,27 +13,23 @@
             primePromise;
 
         var service = {
-            signInUser       : signInUser,
-            registerUser     : registerUser,
-            logout           : logout,
-            getCategories    : getCategories,
-            addCategory      : addCategory,
-            updateCategory   : updateCategory,
-            deleteCategories : deleteCategories,
-            ready            : ready
+            loginUser    : loginUser,
+            registerUser : registerUser,
+            logout       : logout,
+            ready        : ready
         };
 
         return service;
 
         ////////////////
 
-        function signInUser(user)
+        function loginUser(user)
         {
-            return $http.post('/auth/sign-in', user)
+            return $http.post('/auth/login', user)
                 .then(signInComplete)
                 .catch(function (data)
                 {
-                    exception.catcher('XHR Failed for signInUser')(data);
+                    exception.catcher('XHR Failed for loginUser')(data);
                     return {
                         status  : data.status,
                         message : 'Check your internet connection and try again!'
@@ -74,84 +70,6 @@
                 });
 
             function logoutComplete(data) { return data.data; }
-        }
-
-        function getCategories()
-        {
-            return $http.get('/categories')
-                .then(getCategoriesComplete)
-                .catch(function (data)
-                {
-                    return data;
-                });
-
-            function getCategoriesComplete(data) { return data.data; }
-        }
-
-        function addCategory(category)
-        {
-            return $http.post('/category/add', category)
-                .then(addCategoryComplete)
-                .catch(function (data)
-                {
-                    var message = 'Check your internet connection and try again!';
-                    exception.catcher('XHR Failed for addCategory')(data);
-                    if (data.status == 422)
-                    {
-                        message = data.data[0];
-                    }
-                    return {
-                        status  : data.status,
-                        message : message
-                    };
-                });
-
-            function addCategoryComplete(data) { return data.data; }
-        }
-
-        function updateCategory(category)
-        {
-            return $http.post('/category/update', category)
-                .then(updateCategoryComplete)
-                .catch(function (data)
-                {
-                    var message = 'Check your internet connection and try again!';
-                    exception.catcher('XHR Failed for addCategory')(data);
-                    if (data.status == 422)
-                    {
-                        message = data.data[0];
-                    }
-                    return {
-                        status  : data.status,
-                        message : message
-                    };
-                });
-
-            function updateCategoryComplete(data) { return data.data; }
-        }
-
-        function deleteCategories(categories)
-        {
-            return $http.post('/category/delete', categories, {
-                transformRequest : angular.identity,
-                headers          : {'Content-Type' : undefined}
-            })
-                .then(deleteCategoriesComplete)
-                .catch(function (data)
-                {
-                    var message = 'Check your internet connection and try again!';
-                    exception.catcher('XHR Failed for addCategory')(data);
-                    if (data.status == 422)
-                    {
-                        message = data.data[0];
-                    }
-                    return {
-                        status  : data.status,
-                        message : message
-                    };
-                });
-
-            function deleteCategoriesComplete(data) { return data.data; }
         }
 
         function prime()
