@@ -53,5 +53,8 @@
         "post-create-project-cmd": [
             "php artisan key:generate"
         ]
+    },
+    "config": {
+        "preferred-install": "dist"
     }
 }
