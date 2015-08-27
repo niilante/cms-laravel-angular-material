@@ -14,7 +14,7 @@ require('./tasks/angular.tasks.js');
 
 elixir(function(mix) {
     mix
-        .sass('app.scss')
         .angular_vendor()
+        .sass('app.scss')
         .angular_js();
 });
