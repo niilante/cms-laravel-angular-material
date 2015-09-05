@@ -24,7 +24,7 @@ return [
      */
     'navigation'   => [
         'General' => [
-          'This link you can change' => '/',
+          'First Link' => '/',
         ]
     ],
 

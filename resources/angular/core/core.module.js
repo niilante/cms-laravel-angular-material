@@ -10,7 +10,7 @@
         /*
          * App Core Modules
          */
-        'blocks.exception', 'blocks.logger', 'blocks.router', 'blocks.shooter'
+        'blocks.exception', 'blocks.logger', 'blocks.router', 'blocks.shooter', 'blocks.request'
     ]);
 
 })();

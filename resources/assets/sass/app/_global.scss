@@ -4,6 +4,9 @@ body.auth {
 }
 
 // General
+html, body, button, select, html, textarea, input {
+  font-family: 'Lato', sans-serif !important;
+}
 md-content {
   background: #fafafa;
 }
@@ -11,7 +14,18 @@ md-content {
 md-input-container[flex] {
   padding: 2px 8px 26px !important;
 }
-
+.user-legend {
+  margin-top: 10px;
+  p {
+    display: inline-block;
+    line-height: 15px;
+    span {
+      margin-bottom: -2px;
+    }
+    &:last-child {
+      margin-left: 15px;}
+  }
+}
 //Utils
 img.img-responsive {
   max-width: 100%;
@@ -48,6 +62,7 @@ md-sidenav, md-sidenav.md-locked-open, md-sidenav.md-closed.md-locked-open-add-a
 .toolbar {
   background-color: #fff;
   transition: all .3s;
+  color: transparentize(#000000, 0.13);
   @media only screen and (max-width: 960px) {
     background-color: color('blue-grey', 'darken-4') !important;
     .md-headline {

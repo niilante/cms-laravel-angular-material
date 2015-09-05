@@ -28,19 +28,9 @@
         function loginUser()
         {
             vm.submitting = true;
-            return dataservice.loginUser(vm.user).then(function (data)
+            return dataservice.loginUser(vm.user).then(function ()
             {
                 vm.submitting = false;
-                logger.info('data', data);
-                if (data.status != 200)
-                {
-                    shooter.error(data.message);
-                }
-                else
-                {
-                    shooter.success('Congratulations!', data.message);
-                    $window.location.reload();
-                }
             });
         }
     }

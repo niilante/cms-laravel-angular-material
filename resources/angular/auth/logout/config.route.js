@@ -30,10 +30,7 @@
     /* @ngInject */
     function logout(dataservice, $window)
     {
-        dataservice.logout().then(function ()
-        {
-            $window.location.reload();
-        });
+        return dataservice.logout();
     }
 
 })();

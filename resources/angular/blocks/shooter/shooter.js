@@ -15,24 +15,37 @@
             success : success,
             error   : error,
             confirm : confirm,
-            update  : update
+            custom  : custom,
+            image   : image
         };
 
         return service;
 
         ////////////////
 
-        function success(title, message)
+        /**
+         * Show a Dialog with a Success message
+         *
+         * @param message
+         * @param title
+         */
+        function success(message, title)
         {
             $mdDialog.show(
                 $mdDialog.alert()
                     .parent(angular.element(document.body))
-                    .title(title)
+                    .title(title ? title : "Success!")
                     .content(message)
                     .ariaLabel(title)
                     .ok('ok!'));
         }
 
+        /**
+         * Show a Dialog with an Error message and theme
+         *
+         * @param message
+         * @param title
+         */
         function error(message, title)
         {
             $mdDialog.show(
@@ -45,7 +58,15 @@
                     .theme('error'));
         }
 
-        function confirm(ev, title, message, ok)
+        /**
+         * Show a Confirm Dialog with customs callback for each answers if is necessary.
+         *
+         * @param title
+         * @param message
+         * @param ok
+         * @param cancel
+         */
+        function confirm(title, message, ok, cancel)
         {
             $mdDialog.show(
                 $mdDialog.confirm()
@@ -53,23 +74,46 @@
                     .content(message)
                     .ariaLabel(title)
                     .ok('Yes')
-                    .cancel('No')
-                    .targetEvent(ev))
-                .then(ok);
+                    .cancel('No'))
+                .then(ok, cancel);
         }
 
-        function update(ev, controller, templateUrl, local, ok, cancel)
+        /**
+         * Show a Custom Dialog with customs callback for each answers if necessary.
+         *
+         * @param controller
+         * @param templateUrl
+         * @param locals
+         * @param ok
+         * @param cancel
+         */
+        function custom(controller, templateUrl, locals, ok, cancel)
         {
             $mdDialog.show({
                 controller          : controller,
                 templateUrl         : templateUrl,
                 parent              : angular.element(document.body),
-                targetEvent         : ev,
-                locals              : {
-                    item : local
-                },
+                locals              : locals ? locals : {},
                 clickOutsideToClose : true
             }).then(ok, cancel);
+        }
+
+        /**
+         * Show a Dialog with an Image.
+         *
+         * @param imageUrl
+         */
+        function image(imageUrl)
+        {
+            $mdDialog.show({
+                clickOutsideToClose : true,
+                parent              : angular.element(document.body),
+                template            : '<md-dialog aria-label="List dialog">' +
+                '  <md-dialog-content style="padding: 0;line-height: 0;">' +
+                '  <img class="img-responsive" ng-src="' + imageUrl + '" >' +
+                '  </md-dialog-content>' +
+                '</md-dialog>'
+            });
         }
     }
 })();

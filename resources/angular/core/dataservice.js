@@ -7,7 +7,7 @@
         .factory('dataservice', dataservice);
 
     /* @ngInject */
-    function dataservice($http, $location, $window, $q, exception, logger)
+    function dataservice($window, $q, exception, logger, request)
     {
         var isPrimed = false,
             primePromise;
@@ -25,51 +25,23 @@
 
         function loginUser(user)
         {
-            return $http.post('/auth/login', user)
-                .then(signInComplete)
-                .catch(function (data)
-                {
-                    exception.catcher('XHR Failed for loginUser')(data);
-                    return {
-                        status  : data.status,
-                        message : 'Check your internet connection and try again!'
-                    };
-                });
+            return request.post('/auth/login', user, signInComplete, null, 'loginUser');
 
-            function signInComplete(data) { return data.data; }
+            function signInComplete() { $window.location.reload(); }
         }
 
         function registerUser(user)
         {
-            return $http.post('/auth/register', user)
-                .then(registerUserComplete)
-                .catch(function (data)
-                {
-                    var message = 'Check your internet connection and try again!';
-                    exception.catcher('XHR Failed for registerUser')(data);
-                    if (data.status == 422)
-                    {
-                        message = data.data[0];
-                    }
-                    return {
-                        status  : data.status,
-                        message : message
-                    };
-                });
+            return request.post('/auth/register', user,registerUserComplete, null, 'registerUser');
 
-            function registerUserComplete(data) { return data.data; }
+            function registerUserComplete() { $window.location.reload(); }
         }
 
         function logout()
         {
-            return $http.get('/auth/logout')
-                .then(logoutComplete)
-                .catch(function (data)
-                {
-                    return data;
-                });
+            return request.get('/auth/logout', logoutComplete, null, 'logout');
 
-            function logoutComplete(data) { return data.data; }
+            function logoutComplete() { $window.location.reload(); }
         }
 
         function prime()

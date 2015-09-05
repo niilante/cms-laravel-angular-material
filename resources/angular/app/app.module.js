@@ -9,7 +9,9 @@
          * but this is easier to maintain.
          */
         'app.core',
-
+        /*
+         * Application Logout
+         */
         'auth.logout',
 
         /*

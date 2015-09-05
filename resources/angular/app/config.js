@@ -16,18 +16,16 @@
         $interpolateProvider.endSymbol('%}');
 
         $mdThemingProvider.theme('success')
-            .primaryPalette('blue');
-
-        $mdThemingProvider.theme('info')
             .primaryPalette('teal');
 
         $mdThemingProvider.theme('error')
-            .primaryPalette('red');
-
-        $mdThemingProvider.theme('warning')
-            .primaryPalette('red', {
-                default : '800'
-            });
+            .primaryPalette('grey', {
+                default: '100'
+            })
+            .backgroundPalette('red', {
+                default : '700'
+            })
+            .dark();
 
         $mdThemingProvider.theme('default')
             .primaryPalette('blue')
