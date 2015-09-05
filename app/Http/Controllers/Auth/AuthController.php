@@ -43,7 +43,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $loginPath = '/auth/sign-in';
+    protected $loginPath = '/auth/login';
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
@@ -54,6 +54,16 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+    }
+
+    /**
+     * Show the application view
+     *
+     * @return mixed
+     */
+    public function serveApp()
+    {
+        return $this->showView();
     }
 
     /**

@@ -17,10 +17,10 @@ Route::get('/', 'Application\AppController@serveApp');
 Route::get('view/{name}', 'Application\AppController@getView');
 
 // Authentication routes...
-Route::get('auth/login', 'Application\AuthController@serveApp');
+Route::get('auth/login', 'Auth\AuthController@serveApp');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 // Registration routes...
-Route::get('auth/register', 'Application\AuthController@serveApp');
+Route::get('auth/register', 'Auth\AuthController@serveApp');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
