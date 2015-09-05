@@ -23,8 +23,15 @@ return [
      * The collection of items in sideNav
      */
     'navigation'   => [
-        'General' => [
-          'First Link' => '/',
+        'First Section' => [
+            'First Link' => '/',
+            'Second Link' => '/',
+            'Third Link' => '/',
+        ],
+        'Second Section' => [
+            'First Link' => '/',
+            'Second Link' => '/',
+            'Third Link' => '/',
         ]
     ],
 
